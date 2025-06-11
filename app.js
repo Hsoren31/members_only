@@ -5,6 +5,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const signupRouter = require("./routers/signupRouter.js");
+const memberRouter = require("./routers/memberRouter.js");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+app.use("/members", memberRouter);
 app.use("/sign-up", signupRouter);
 app.get("/", (req, res) => res.render("index"));
 

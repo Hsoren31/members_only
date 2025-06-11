@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join the Club!</title>
+  </head>
+  <body>
+    <h1>Join the Club!</h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/members/join" method="post">
+      <label for="secretCode">Enter the Secret Code: </label>
+      <input type="password" name="secretCode" id="secretCode" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
