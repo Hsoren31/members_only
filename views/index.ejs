@@ -8,6 +8,9 @@
   <body>
     <% if (locals.user) {%>
     <h1>Welcome Back! <%= user.username %></h1>
+    <% if (!locals.user.membership_status) {%>
+    <a href="/members/join">Want to become a member?</a>
+    <%}%>
     <a href="/log-out">LOG OUT</a>
     <%} else { %>
     <h1>Please Log In</h1>

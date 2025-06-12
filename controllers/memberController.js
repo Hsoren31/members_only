@@ -22,6 +22,7 @@ exports.joinUserPost = [
         errors: errors.array(),
       });
     }
+    await db.userToMember(req.user);
     res.render("success", { message: "You successfully joined the club!" });
   },
 ];

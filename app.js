@@ -90,6 +90,8 @@ app.get("/log-out", (req, res, next) => {
 
 app.use("/members", memberRouter);
 app.use("/sign-up", signupRouter);
-app.get("/", (req, res) => res.render("index", { user: req.user }));
+app.get("/", (req, res) => {
+  res.render("index", { user: req.user });
+});
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

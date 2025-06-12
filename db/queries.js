@@ -7,6 +7,14 @@ async function insertUser(firstname, lastname, username, password) {
   );
 }
 
+async function userToMember(user) {
+  await pool.query(
+    "UPDATE users SET membership_status = true WHERE id = ($1)",
+    [user.id]
+  );
+}
+
 module.exports = {
   insertUser,
+  userToMember,
 };
