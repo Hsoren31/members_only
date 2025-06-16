@@ -9,6 +9,7 @@ const bcrypt = require("bcryptjs");
 
 const signupRouter = require("./routers/signupRouter.js");
 const memberRouter = require("./routers/memberRouter.js");
+const postRouter = require("./routers/postRouter.js");
 
 const app = express();
 
@@ -30,6 +31,11 @@ app.use(
 );
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 //authenticate users using LocalStrategy
 passport.use(
@@ -88,6 +94,7 @@ app.get("/log-out", (req, res, next) => {
   });
 });
 
+app.use("/posts", postRouter);
 app.use("/members", memberRouter);
 app.use("/sign-up", signupRouter);
 app.get("/", (req, res) => {

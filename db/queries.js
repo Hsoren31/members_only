@@ -14,7 +14,21 @@ async function userToMember(user) {
   );
 }
 
+async function insertPost(message, user) {
+  await pool.query("INSERT INTO posts (message, author_id) VALUES ($1, $2)", [
+    message,
+    user,
+  ]);
+}
+
+async function getAllPosts() {
+  const { rows } = await pool.query("SELECT * FROM posts");
+  return rows;
+}
+
 module.exports = {
   insertUser,
   userToMember,
+  insertPost,
+  getAllPosts,
 };
