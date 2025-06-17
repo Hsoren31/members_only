@@ -8,7 +8,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
 const signupRouter = require("./routers/signupRouter.js");
-const memberRouter = require("./routers/memberRouter.js");
+const userRouter = require("./routers/userRouter.js");
 const postRouter = require("./routers/postRouter.js");
 
 const app = express();
@@ -95,7 +95,7 @@ app.get("/log-out", (req, res, next) => {
 });
 
 app.use("/posts", postRouter);
-app.use("/members", memberRouter);
+app.use("/users", userRouter);
 app.use("/sign-up", signupRouter);
 app.get("/", (req, res) => {
   res.render("index", { user: req.user });

@@ -14,6 +14,12 @@ async function userToMember(user) {
   );
 }
 
+async function giveAdminStatus(user) {
+  await pool.query("UPDATE users SET admin_status = true WHERE id = ($1)", [
+    user.id,
+  ]);
+}
+
 async function insertPost(message, user) {
   await pool.query("INSERT INTO posts (message, author_id) VALUES ($1, $2)", [
     message,
@@ -31,6 +37,7 @@ async function getAllPosts() {
 module.exports = {
   insertUser,
   userToMember,
+  giveAdminStatus,
   insertPost,
   getAllPosts,
 };

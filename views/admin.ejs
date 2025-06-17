@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <h1>Become an Admin</h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/users/admin" method="post">
+      <label for="secretCode">Enter the Secret Code: </label>
+      <input type="password" name="secretCode" id="secretCode" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
