@@ -22,7 +22,9 @@ async function insertPost(message, user) {
 }
 
 async function getAllPosts() {
-  const { rows } = await pool.query("SELECT * FROM posts");
+  const { rows } = await pool.query(
+    "SELECT posts.id, message, first_name, last_name FROM posts JOIN users ON author_id = users.id;"
+  );
   return rows;
 }
 

@@ -7,12 +7,21 @@
   </head>
   <body>
     <a href="/">Back to Home</a>
-    <% if (posts) {%>
+    <% if(!locals.currentUser) {%>
+    <a href="/">Please login</a>
+    <%} else {%> <% if (posts) {%>
     <ul>
       <% posts.forEach(function(post) { %>
-      <li><%= post.message %> - anonymous user</li>
+      <li>
+        <p><%= post.message %></p>
+        <% if(locals.currentUser.membership_status) {%>
+        <p><%= post.first_name %> <%= post.last_name%></p>
+        <%} else { %>
+        <p>Anonymous User</p>
+        <% } %>
+      </li>
       <% }); %>
     </ul>
-    <% } %>
+    <% }} %>
   </body>
 </html>
