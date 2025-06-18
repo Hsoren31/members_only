@@ -32,6 +32,11 @@ exports.newMessagePost = [
   },
 ];
 
+exports.deletePost = async (req, res) => {
+  await db.deletePost(req.params.id);
+  res.redirect("/posts");
+};
+
 exports.getAllPosts = async (req, res) => {
   const posts = await db.getAllPosts();
   res.render("posts.ejs", { posts: posts });

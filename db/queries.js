@@ -27,6 +27,10 @@ async function insertPost(message, user) {
   ]);
 }
 
+async function deletePost(postId) {
+  await pool.query("DELETE FROM posts WHERE id = ($1)", [postId]);
+}
+
 async function getAllPosts() {
   const { rows } = await pool.query(
     "SELECT posts.id, message, first_name, last_name FROM posts JOIN users ON author_id = users.id;"
@@ -39,5 +43,6 @@ module.exports = {
   userToMember,
   giveAdminStatus,
   insertPost,
+  deletePost,
   getAllPosts,
 };
