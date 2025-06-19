@@ -9,7 +9,7 @@ const validatePost = [
     .trim()
     .notEmpty()
     .withMessage(`Message ${emptyErr}`)
-    .isLength({ min: 1, max: 12 })
+    .isLength({ min: 1, max: 255 })
     .withMessage(`Message ${lengthErr}`),
 ];
 
