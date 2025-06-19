@@ -27,7 +27,8 @@ exports.newMessagePost = [
       });
     }
     const { message } = req.body;
-    await db.insertPost(message, req.user.id);
+    const timeStamp = new Date().toLocaleString();
+    await db.insertPost(message, req.user.id, timeStamp);
     res.redirect("/");
   },
 ];

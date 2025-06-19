@@ -15,7 +15,9 @@
       <li>
         <p><%= post.message %></p>
         <% if(locals.currentUser.membership_status) {%>
-        <p><%= post.first_name %> <%= post.last_name%></p>
+        <p>
+          - <%= post.first_name %> <%= post.last_name%> <%= post.timestamp %>
+        </p>
         <%} else { %>
         <p>Anonymous User</p>
         <% } %> <% if(locals.currentUser.admin_status) {%>

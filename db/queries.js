@@ -20,11 +20,11 @@ async function giveAdminStatus(user) {
   ]);
 }
 
-async function insertPost(message, user) {
-  await pool.query("INSERT INTO posts (message, author_id) VALUES ($1, $2)", [
-    message,
-    user,
-  ]);
+async function insertPost(message, user, timestamp) {
+  await pool.query(
+    "INSERT INTO posts (message, author_id, timestamp) VALUES ($1, $2, $3)",
+    [message, user, timestamp]
+  );
 }
 
 async function deletePost(postId) {
@@ -33,7 +33,7 @@ async function deletePost(postId) {
 
 async function getAllPosts() {
   const { rows } = await pool.query(
-    "SELECT posts.id, message, first_name, last_name FROM posts JOIN users ON author_id = users.id;"
+    "SELECT posts.id, message, timestamp, first_name, last_name FROM posts JOIN users ON author_id = users.id;"
   );
   return rows;
 }
