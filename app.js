@@ -7,7 +7,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
-const signupRouter = require("./routers/signupRouter.js");
 const userRouter = require("./routers/userRouter.js");
 const postRouter = require("./routers/postRouter.js");
 
@@ -96,9 +95,8 @@ app.get("/log-out", (req, res, next) => {
 
 app.use("/posts", postRouter);
 app.use("/users", userRouter);
-app.use("/sign-up", signupRouter);
 app.get("/", (req, res) => {
-  res.render("index", { user: req.user });
+  res.render("index");
 });
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

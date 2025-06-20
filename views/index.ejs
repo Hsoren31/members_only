@@ -6,11 +6,10 @@
     <title>Home</title>
   </head>
   <body>
-    <% if (locals.user) {%>
-    <h1>Welcome Back! <%= user.username %></h1>
-    <a href="/posts">View Community Posts</a>
+    <% if (locals.currentUser) {%>
+    <h1>Welcome Back! <%= locals.currentUser.username %></h1>
     <a href="/posts/new">Write a Message</a>
-    <% if (!locals.user.membership_status) {%>
+    <% if (!locals.currentUser.membership_status) {%>
     <a href="/users/members/join">Want to become a member?</a>
     <%}%>
     <a href="/users/admin">Become an Admin</a>
@@ -25,7 +24,7 @@
       <button type="submit">Log In</button>
     </form>
     <h2>Or Sign Up!</h2>
-    <a href="/sign-up">Sign-Up</a>
+    <a href="/users/sign-up">Sign-Up</a>
     <%}%>
   </body>
 </html>
