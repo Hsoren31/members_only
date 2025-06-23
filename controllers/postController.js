@@ -29,7 +29,7 @@ exports.newMessagePost = [
     const { message } = req.body;
     const timeStamp = new Date().toLocaleString();
     await db.insertPost(message, req.user.id, timeStamp);
-    res.redirect("/");
+    res.redirect("/posts");
   },
 ];
 
