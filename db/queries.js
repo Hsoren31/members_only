@@ -18,6 +18,10 @@ async function giveAdminStatus(user) {
   await pool.query("UPDATE users SET admin_status = true WHERE id = ($1)", [
     user.id,
   ]);
+  await pool.query(
+    "UPDATE users SET membership_status = true WHERE id = ($1)",
+    [user.id]
+  );
 }
 
 async function insertPost(message, user, timestamp) {
