@@ -1,0 +1,146 @@
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  /* Improve text rendering on macOS*/
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  font-size: 100%;
+  width: 200px;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 1.7rem + 0.25vw, 2rem);
+  max-width: fit-content;
+}
+
+/* LINKS */
+a:any-link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: green;
+}
+
+a:active {
+  color: green;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem 1rem;
+}
+
+.header_list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+/* MAIN CONTENT */
+main > * {
+  margin: 0 auto;
+}
+
+/* FORM */
+form {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+form > p {
+  display: grid;
+  gap: 5px;
+}
+
+/* FORM CONTAINER */
+.form_container {
+  border: 1px solid green;
+  padding: 1rem;
+  margin-top: 10px;
+  max-width: fit-content;
+}
+
+.form_container > h2 {
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+/* POSTS */
+.posts_list {
+  display: grid;
+  gap: 15px;
+  list-style: none;
+
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.post {
+  border: 1px solid black;
+  padding: 1rem;
+}

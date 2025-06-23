@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Members Only</title>
   </head>
   <body>
-    <% if (locals.currentUser) {%>
-    <h1>Welcome Back! <%= locals.currentUser.username %></h1>
-    <a href="/posts/new">Write a Message</a>
-    <% if (!locals.currentUser.membership_status) {%>
-    <a href="/users/members/join">Want to become a member?</a>
-    <%}%>
-    <a href="/users/admin">Become an Admin</a>
-    <a href="/log-out">LOG OUT</a>
-    <%} else { %>
-    <h1>Please Log In</h1>
-    <form action="/log-in" method="post">
-      <label for="username">Username: </label>
-      <input id="username" name="username" placeholder="username" type="text" />
-      <label for="password">Password: </label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Log In</button>
-    </form>
-    <h2>Or Sign Up!</h2>
-    <a href="/users/sign-up">Sign-Up</a>
-    <%}%>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <h1>Welcome!</h1>
+      <div class="form_container">
+        <h2>Login</h2>
+        <form class="form_login" action="/log-in" method="post">
+          <p>
+            <label for="username">Username: </label>
+            <input id="username" name="username" placeholder="username" type="text" />  
+          </p>
+          <p>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" />  
+          </p>
+          <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="/users/sign-up">Sign-Up</a></p>
+      </div>
+    </main>
   </body>
 </html>
