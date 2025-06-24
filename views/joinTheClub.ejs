@@ -6,13 +6,18 @@
     <link rel="stylesheet" href="/styles.css" />
     <title>Join the Club!</title>
   </head>
-  <body>
-    <h1>Join the Club!</h1>
-    <%- include("partials/errors.ejs") %>
-    <form action="/users/members/join" method="post">
-      <label for="secretCode">Enter the Secret Code: </label>
-      <input type="password" name="secretCode" id="secretCode" />
-      <button type="submit">Submit</button>
-    </form>
+  <body> 
+    <%- include("partials/header.ejs") %>
+    <main>
+      <h1>Join the Club!</h1>
+      <div class="form_container">
+        <%- include("partials/errors.ejs") %>
+        <form action="/users/members/join" method="post">
+          <label for="secretCode">Enter the Secret Code: </label>
+          <input type="password" name="secretCode" id="secretCode" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>

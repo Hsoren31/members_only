@@ -7,12 +7,17 @@
     <title>Admin</title>
   </head>
   <body>
-    <h1>Become an Admin</h1>
-    <%- include("partials/errors.ejs") %>
-    <form action="/users/admin" method="post">
-      <label for="secretCode">Enter the Secret Code: </label>
-      <input type="password" name="secretCode" id="secretCode" />
-      <button type="submit">Submit</button>
-    </form>
+    <%- include("partials/header.ejs")%>
+    <main>
+      <h1>Become an Admin</h1>
+      <div class="form_container">
+        <%- include("partials/errors.ejs") %>
+        <form action="/users/admin" method="post">
+          <label for="secretCode">Enter the Secret Code: </label>
+          <input type="password" name="secretCode" id="secretCode" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>

@@ -7,16 +7,21 @@
     <title>New Message</title>
   </head>
   <body>
-    <% if(!locals.currentUser) { %>
-    <a href="/">Please login</a>
-    <%} else {%>
-    <h1>Write a New Message</h1>
-    <%- include("partials/errors.ejs") %>
-    <form action="/posts/new" method="post">
-      <label for="message">Message: </label>
-      <textarea name="message" id="message"></textarea>
-      <button type="submit">Post</button>
-    </form>
-    <%}%>
+    <%- include("partials/header.ejs")%>
+    <main>
+      <% if(!locals.currentUser) { %>
+        <a href="/">You need to login in to write a message</a>
+        <%} else {%>
+        <h1>Write a New Message</h1>
+        <div class="form_container">
+          <%- include("partials/errors.ejs") %>
+          <form action="/posts/new" method="post">
+            <label for="message">Message: </label>
+            <textarea name="message" id="message"></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+        <%}%>
+    </main>
   </body>
 </html>
