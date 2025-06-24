@@ -9,9 +9,9 @@
   <body>
     <%- include("partials/header.ejs")%>
     <main>
-      <% if(!locals.currentUser) { %>
-        <a href="/">You need to login in to write a message</a>
-        <%} else {%>
+      <% if(!locals.currentUser) {%>
+        <%- include("partials/loginFirst.ejs")%>
+      <%} else {%>
         <h1>Write a New Message</h1>
         <div class="form_container">
           <%- include("partials/errors.ejs") %>

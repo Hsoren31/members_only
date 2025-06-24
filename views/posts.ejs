@@ -10,11 +10,9 @@
     <%- include("partials/header.ejs") %>
     <main>
       <% if(!locals.currentUser) { %>
+        <%- include("partials/loginFirst.ejs") %>
         <% if(posts.length > 0){%> 
         <ul class="posts_list">
-          <li>
-            <p class="login_first">To create a post, you need to <a href="/">login</a> first.</p>
-          </li>
           <% posts.forEach(function(post) { %>
             <li class="post">
               <ul class="user_info">
@@ -29,7 +27,6 @@
         <%} else {%>
           <div class="posts_empty">
             <p>No Posts here yet.</p>
-            <p>Be the first to <a href="/posts/new">write</a> a message.</p>  
           </div>       
         <%}%>
       <%} else {%>
