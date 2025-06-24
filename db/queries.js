@@ -37,7 +37,7 @@ async function deletePost(postId) {
 
 async function getAllPosts() {
   const { rows } = await pool.query(
-    "SELECT posts.id, message, timestamp, first_name, last_name FROM posts JOIN users ON author_id = users.id;"
+    "SELECT posts.id, message, timestamp, first_name, last_name, username FROM posts JOIN users ON author_id = users.id;"
   );
   return rows;
 }

@@ -7,26 +7,41 @@
     <title>Members Only Posts</title>
   </head>
   <body>
-    <%- include("partials/header.ejs") %> 
-    <% if(!locals.currentUser) { %>
-      <ul class="posts_list">
-        <li>
-          <p>To create a post, you need to <a href="/">login</a> first.</p>
-        </li>
-        <% posts.forEach(function(post) {%>
-          <li class="post">
-            <p><%= post.message %></p>
-            <p>Anonymous User</p>
-            <p>Some Time Ago...</p>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <% if(!locals.currentUser) { %>
+        <% if(posts.length > 0){%> 
+        <ul class="posts_list">
+          <li>
+            <p class="login_first">To create a post, you need to <a href="/">login</a> first.</p>
           </li>
-        <%})%>
-      </ul>
-    <%} else {%>
-      <% if (posts) {%>
-        <%- include("partials/postList.ejs")%>
+          <% posts.forEach(function(post) { %>
+            <li class="post">
+              <ul class="user_info">
+                <li class="user name">Anonymous%></li>
+                <li class="user username">@*****</li>  
+              </ul>
+              <p class="message"><%= post.message %></p>
+              <p class="timestamp">Some Time Ago...%></p>
+            </li>
+        <% }); %>
+        </ul>
+        <%} else {%>
+          <div class="posts_empty">
+            <p>No Posts here yet.</p>
+            <p>Be the first to <a href="/posts/new">write</a> a message.</p>  
+          </div>       
+        <%}%>
       <%} else {%>
-        <p>Be the first to <a href="/posts/new">write</a> a message.</p>
-      <%}%> 
-    <%}%>
+        <% if (posts.length > 0) {%>
+          <%- include("partials/postList.ejs")%>
+        <%} else {%>
+          <div class="posts_empty">
+            <p>No Posts here yet.</p>
+            <p>Be the first to <a href="/posts/new">write</a> a message.</p>  
+          </div>
+        <%}%> 
+      <%}%>
+    </main>
   </body>
 </html>

@@ -1,3 +1,13 @@
+:root {
+  /* Colors */
+  --clr-black: #000;
+  --clr-gray: #393e41;
+  --clr-white: #f6f7eb;
+  --clr-red: #d9594c;
+  --clr-red-hover: #dd4535;
+  --clr-green: #00a676;
+}
+
 /* RESET */
 *,
 *::before,
@@ -80,6 +90,27 @@ a:active {
   color: green;
 }
 
+/* BUTTONS */
+button {
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.delete_btn {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+button.delete_btn:hover {
+  background-color: var(--clr-red-hover);
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -141,6 +172,60 @@ form > p {
 }
 
 .post {
-  border: 1px solid black;
+  border: 1px solid var(--clr-gray);
+  border-radius: 10px;
   padding: 1rem;
+
+  box-shadow: 1px 1px 3px 0px var(--clr-gray);
+}
+
+.user_info {
+  display: grid;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.user.name {
+  font-weight: 600;
+}
+
+.message {
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
+}
+
+.username,
+.timestamp {
+  color: rgb(58, 58, 58);
+}
+
+.delete_post {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: end;
+}
+
+.posts_empty {
+  max-width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login_first {
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+
+  font-size: 1.25rem;
+  text-align: center;
+
+  padding: 1em;
+  border-radius: 3px;
+
+  a {
+    color: var(--clr-white);
+    text-decoration: underline;
+    font-weight: 600;
+  }
 }
