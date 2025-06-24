@@ -9,6 +9,7 @@ const bcrypt = require("bcryptjs");
 
 const userRouter = require("./routers/userRouter.js");
 const postRouter = require("./routers/postRouter.js");
+const db = require("./db/queries.js");
 
 const app = express();
 
@@ -98,8 +99,13 @@ app.get("/log-out", (req, res, next) => {
 
 app.use("/posts", postRouter);
 app.use("/users", userRouter);
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async (req, res) => {
+  const posts = await db.getAllPosts();
+  if (res.locals.currentUser) {
+    res.render("posts", { posts });
+  } else {
+    res.render("index");
+  }
 });
 
 app.listen(3000, () => console.log("app listening on port 3000!"));
