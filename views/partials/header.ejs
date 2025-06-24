@@ -7,8 +7,19 @@
       <li><a href="/">Login</a></li>
       <li><a href="/users/sign-up">Sign Up</a></li>
     <%} else {%>
-      <li><a href="/posts/new">New Message</a></li>
-      <li><form action="/log-out" method="get"><button type="submit">Logout</button></form></li>
+      <div class="dropdown">
+        <button class="dropbtn"><%= locals.currentUser.username %></button>
+        <div class="dropdown-content">
+          <a href="/posts/new">New Message</a>
+          <% if(!locals.currentUser.membership_status) {%>
+            <a href="/users/members/join">Membership</a>
+          <%}%>
+          <% if(!locals.currentUser.admin_status) {%>
+            <a href="/users/admin">Admin</a>
+          <%}%>
+          <a href="/log-out">Logout</a>
+        </div>
+      </div>
     <%}%>
   </ul>
 </header>
