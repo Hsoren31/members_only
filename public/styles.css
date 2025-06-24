@@ -6,6 +6,7 @@
   --clr-red: #d9594c;
   --clr-red-hover: #dd4535;
   --clr-green: #00a676;
+  --clr-green-hover: #008f66;
 }
 
 /* RESET */
@@ -24,6 +25,9 @@ body {
   line-height: 1.5;
   /* Improve text rendering on macOS*/
   -webkit-font-smoothing: antialiased;
+
+  background-color: var(--clr-white);
+  color: var(--clr-black);
 }
 
 img,
@@ -76,6 +80,7 @@ h1 {
 /* LINKS */
 a:any-link {
   text-decoration: none;
+  max-width: fit-content;
 }
 
 a:visited {
@@ -83,11 +88,20 @@ a:visited {
 }
 
 a:hover {
-  color: green;
+  color: var(--clr-green);
 }
 
 a:active {
-  color: green;
+  color: var(--clr-green);
+}
+
+a.sign_up {
+  color: var(--clr-green);
+}
+
+a.sign_up:hover,
+a.sign_up:active {
+  color: var(--clr-green-hover);
 }
 
 /* BUTTONS */
@@ -99,6 +113,17 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+button[type="submit"] {
+  color: var(--clr-white);
+  background-color: var(--clr-green);
+
+  font-weight: 600;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--clr-green-hover);
 }
 
 button.delete_btn {
@@ -118,6 +143,8 @@ header {
   align-items: center;
 
   padding: 0.5rem 1rem;
+
+  border-bottom: 1px dashed var(--clr-gray);
 }
 
 .header_list {
@@ -131,6 +158,9 @@ header {
 }
 
 /* MAIN CONTENT */
+main {
+  margin: 2rem 0;
+}
 main > * {
   margin: 0 auto;
 }
@@ -149,7 +179,9 @@ form > p {
 
 /* FORM CONTAINER */
 .form_container {
-  border: 1px solid green;
+  border: 1px solid var(--clr-gray);
+  border-radius: 3px;
+
   padding: 1rem;
   margin-top: 10px;
   max-width: fit-content;
@@ -273,4 +305,12 @@ form > p {
 
 .dropdown-content a:hover {
   color: var(--clr-green);
+}
+
+.dropdown-content a.logout {
+  color: var(--clr-red);
+}
+
+.dropdown-content a.logout:hover {
+  color: var(--clr-red-hover);
 }
