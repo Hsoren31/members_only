@@ -54,7 +54,7 @@ const validateMember = [
 const validateAdmin = [
   body("secretCode")
     .custom((value) => {
-      return value === ADMINPASSWORD;
+      return value === process.env.ADMINPASSWORD;
     })
     .withMessage("Sorry that's not it."),
 ];
