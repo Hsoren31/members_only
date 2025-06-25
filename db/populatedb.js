@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
+require("dotenv").config();
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
