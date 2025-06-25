@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS posts (
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: process.env.CONNECTIONSTRING,
+    connectionString: process.env.DATABASE_URL,
   });
   await client.connect();
   await client.query(SQL);

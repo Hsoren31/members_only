@@ -3,6 +3,7 @@ const path = require("node:path");
 const pool = require("./db/pool.js");
 const express = require("express");
 const session = require("express-session");
+const pgSession = require("connect-pg-simple")(session);
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
@@ -24,7 +25,7 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    store: new (require("connect-pg-simple")(session))({
+    store: new pgSession({
       pool: pool,
       tableName: "user_sessions",
       createTableIfMissing: true,
