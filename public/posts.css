@@ -1,0 +1,52 @@
+/* POSTS */
+.posts_list {
+  display: grid;
+  gap: 15px;
+  list-style: none;
+
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.post {
+  border: 1px solid var(--clr-gray);
+  border-radius: 10px;
+  padding: 1rem;
+
+  box-shadow: 1px 1px 3px 0px var(--clr-gray);
+}
+
+.user_info {
+  display: grid;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.user.name {
+  font-weight: 600;
+}
+
+.message {
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
+}
+
+.username,
+.timestamp {
+  color: rgb(58, 58, 58);
+}
+
+.delete_post {
+  margin-bottom: 0;
+  display: flex;
+  justify-content: end;
+}
+
+.posts_empty {
+  max-width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}

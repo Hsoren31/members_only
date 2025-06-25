@@ -1,0 +1,40 @@
+/* FORM */
+form {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+form > p {
+  display: grid;
+  gap: 5px;
+}
+
+/* FORM CONTAINER */
+.form_container {
+  border: 1px solid var(--clr-gray);
+  border-radius: 3px;
+
+  padding: 1rem;
+  margin-top: 10px;
+  max-width: fit-content;
+}
+
+.form_container > h2 {
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  font-size: 100%;
+  width: 200px;
+}
+
+label {
+  width: 200px;
+  text-wrap: balance;
+}
