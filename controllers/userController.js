@@ -46,7 +46,7 @@ const validateUser = [
 const validateMember = [
   body("secretCode")
     .custom((value) => {
-      return value === "scuttle bones";
+      return value === process.env.MEMBERPASSWORD;
     })
     .withMessage("Sorry that's not it."),
 ];
@@ -54,7 +54,7 @@ const validateMember = [
 const validateAdmin = [
   body("secretCode")
     .custom((value) => {
-      return value === "Schooner";
+      return value === ADMINPASSWORD;
     })
     .withMessage("Sorry that's not it."),
 ];
