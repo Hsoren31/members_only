@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node db/populatedb.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
