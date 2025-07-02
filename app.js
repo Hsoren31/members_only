@@ -109,5 +109,5 @@ app.get("/", async (req, res) => {
   }
 });
 
-const PORT = process.env.PGPORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
