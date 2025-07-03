@@ -2,24 +2,33 @@
   <h1>
     <a href="/">Members Only</a>
   </h1>
-  <ul class="header_list">
-    <% if (!locals.currentUser) { %>
-      <li><a href="/">Login</a></li>
-      <li><a href="/users/sign-up">Sign Up</a></li>
-    <%} else {%>
-      <div class="dropdown">
-        <button class="dropbtn"><%= locals.currentUser.username %></button>
-        <div class="dropdown-content">
-          <a href="/posts/new">New Message</a>
-          <% if(!locals.currentUser.membership_status) {%>
-            <a href="/users/members/join">Membership</a>
-          <%}%>
-          <% if(!locals.currentUser.admin_status) {%>
-            <a href="/users/admin">Admin</a>
-          <%}%>
-          <a class="logout" href="/log-out">Logout</a>
-        </div>
-      </div>
-    <%}%>
-  </ul>
+  <nav class="primary-nav">
+    <ul>
+      <% if (!locals.currentUser) { %>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/">Login</a></li>
+        <li><a href="/users/sign-up">Sign Up</a></li>
+      <%} else {%>
+        <button popovertarget="profile-menu" class="user-button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="user-icon" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#00a676" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+        </button>
+      <%}%>
+    </ul>
+  </nav>
 </header>
+<% if(locals.currentUser) { %>
+  <dialog popover id="profile-menu" class="profile-menu">
+    <div class="account-info">
+      <strong><%=locals.currentUser.first_name%> <%=locals.currentUser.last_name%></strong>
+      <p><%=locals.currentUser.username %></p>
+    </div>
+    <a  href="/posts/new">Create</a>
+    <% if(!locals.currentUser.membership_status) {%>
+      <a href="/users/members/join">Membership</a>
+    <%}%>
+    <% if(!locals.currentUser.admin_status) {%>
+      <a href="/users/admin">Admin</a>
+    <%}%>
+    <a id="logout" href="/log-out">Log out</a>
+  </dialog>
+<%}%>
