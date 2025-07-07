@@ -1,12 +1,27 @@
 :root {
-  /* Colors */
-  --clr-black: #000;
-  --clr-gray: #393e41;
-  --clr-white: #f6f7eb;
-  --clr-red: #d9594c;
-  --clr-red-hover: #dd4535;
-  --clr-green: #00a676;
-  --clr-green-hover: #008f66;
+  /* colors */
+  --clr-red: hsl(2, 70%, 48%);
+  --clr-green: hsl(138, 76%, 31%);
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-white: hsl(0, 0%, 96%);
+  --clr-teal: hsl(187, 97%, 29%);
+  --clr-teal-hover: hsl(187, 97%, 24%);
+
+  /* font families */
+  --ff-base: "Crimson Text", serif;
+  --ff-accent: "Unica One", sans-serif;
+
+  /* font weights */
+  --fw-regular: 400;
+  --fw-bold: 600;
+  --fw-black: 700;
+
+  /* font sizes */
+  --fs-300: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  --fs-400: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem);
+  --fs-500: clamp(1.5rem, 1.45rem + 0.25vw, 1.75rem);
+  --fs-600: clamp(1.75rem, 1.7rem + 0.25vw, 2rem);
+  --fs-700: clamp(2rem, 1.95rem + 0.25vw, 2.25rem);
 }
 
 /* RESET */
@@ -18,20 +33,35 @@
 
 * {
   margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
 body {
+  --body: var(--clr-black);
+  --heading: var(--clr-black);
+  --bg: var(--clr-white);
+  --button-text: var(--clr-white);
+  --button-bg: var(--clr-teal);
+  --button-text-hover: var(--clr-white);
+  --button-bg-hover: var(--clr-teal-hover);
+
   min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--body);
+
   line-height: 1.5;
+  font-family: var(--ff-base);
+  font-size: var(--fs-300);
+
   /* Improve text rendering on macOS*/
   -webkit-font-smoothing: antialiased;
-
-  background-color: var(--clr-white);
-  color: var(--clr-black);
 }
 
 img,
-picture {
+picture,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -59,71 +89,32 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+  font-family: var(--ff-accent);
+}
+/* button */
+button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 0;
 }
 
-/* HEADINGS */
-h1 {
-  font-size: 1.75rem;
-  font-size: clamp(1.75rem, 1.7rem + 0.25vw, 2rem);
-  max-width: fit-content;
+button:hover,
+button:focus {
+  background: var(--button-bg-hover);
+  color: var(--button-text-hover);
 }
 
-/* LINKS */
-a:any-link {
+/* links */
+a:link,
+a:visited {
+  color: var(--clr-teal);
   text-decoration: none;
 }
 
-a:visited {
-  color: black;
-}
-
-a:hover {
-  color: var(--clr-green);
-}
-
+a:hover,
 a:active {
-  color: var(--clr-green);
-}
-
-a.sign_up {
-  color: var(--clr-green);
-}
-
-a.sign_up:hover,
-a.sign_up:active {
-  color: var(--clr-green-hover);
-}
-
-/* BUTTONS */
-button {
-  padding: 0.25em 0.5em;
-  border: none;
-  border-radius: 3px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-button[type="submit"] {
-  color: var(--clr-white);
-  background-color: var(--clr-green);
-
-  font-weight: 600;
-}
-
-button[type="submit"]:hover {
-  background-color: var(--clr-green-hover);
-}
-
-button.delete_btn {
-  background-color: var(--clr-red);
-  color: var(--clr-white);
-  font-weight: 600;
-}
-
-button.delete_btn:hover {
-  background-color: var(--clr-red-hover);
+  color: var(--clr-teal-hover);
+  text-decoration: underline;
 }
 
 /* HEADER */
@@ -133,8 +124,11 @@ header {
   align-items: center;
 
   padding: 0.5rem 1rem;
+  font-family: var(--ff-accent);
+}
 
-  border-bottom: 1px dashed var(--clr-gray);
+h1 {
+  font-size: var(--fs-700);
 }
 
 .primary-nav {
@@ -150,13 +144,13 @@ header {
   }
 
   a.login {
-    border: 2px solid var(--clr-green);
+    border: 2px solid var(--clr-teal);
   }
 
   a.sign-up {
-    background-color: var(--clr-green);
+    background-color: var(--clr-teal);
     color: var(--clr-white);
-    border: 2px solid var(--clr-green);
+    border: 2px solid var(--clr-teal);
   }
 }
 
@@ -224,7 +218,7 @@ main > * {
 }
 
 .login_first {
-  background-color: var(--clr-green);
+  background-color: var(--clr-teal);
   color: var(--clr-white);
 
   font-size: 1.25rem;
