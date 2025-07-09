@@ -268,3 +268,83 @@ input:not(:placeholder-shown):invalid {
 input:focus:invalid {
   outline-color: var(--clr-warning);
 }
+
+/* POSTS */
+.posts-container {
+  max-width: calc(100% - 4rem);
+  margin: 2rem auto;
+}
+
+.posts_list,
+.user_info {
+  list-style: none;
+}
+
+.posts_list {
+  display: grid;
+  gap: 1rem;
+}
+
+.login_first {
+  background-color: var(--clr-teal);
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+
+  a {
+    color: var(--clr-white);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+    letter-spacing: 1px;
+  }
+}
+
+.post {
+  position: relative;
+  border: 1px solid var(--clr-teal);
+  border-radius: 3px;
+  box-shadow: 0px 0px 8px 0px hsl(0 0 0 / 0.3);
+  max-width: 100%;
+  padding: 1rem;
+  font-size: var(--fs-400);
+
+  .user {
+    font-family: var(--ff-accent);
+  }
+  .name {
+    font-weight: var(--fw-bold);
+    letter-spacing: 1px;
+  }
+  .message {
+    overflow-wrap: anywhere;
+    font-size: var(--fs-500);
+  }
+
+  .user.username,
+  .timestamp {
+    font-size: var(--fs-300);
+  }
+}
+
+form.delete_post {
+  --clr-delete: hsl(2, 71%, 32%);
+  --clr-delete-hover: hsl(2, 71%, 56%);
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.delete_btn {
+  background: none;
+  max-width: fit-content;
+  color: var(--clr-delete);
+}
+
+.delete_btn:hover,
+.delete_btn:active,
+.delete_btn:focus {
+  background: none;
+  color: var(--clr-delete-hover);
+}

@@ -3,43 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/posts.css">
-    <title>Members Only Posts</title>
+    <title>Members Only</title>
   </head>
   <body>
     <%- include("partials/header.ejs") %>
     <main>
-      <% if(!locals.currentUser) { %>
-        <%- include("partials/loginFirst.ejs") %>
-        <% if(posts.length > 0){%> 
-        <ul class="posts_list">
-          <% posts.forEach(function(post) { %>
-            <li class="post">
-              <ul class="user_info">
-                <li class="user name">Anonymous%></li>
-                <li class="user username">@*****</li>  
-              </ul>
-              <p class="message"><%= post.message %></p>
-              <p class="timestamp">Some Time Ago...%></p>
-            </li>
-        <% }); %>
-        </ul>
-        <%} else {%>
-          <div class="posts_empty">
-            <p>No Posts here yet.</p>
-          </div>       
-        <%}%>
-      <%} else {%>
-        <% if (posts.length > 0) {%>
-          <%- include("partials/postList.ejs")%>
-        <%} else {%>
-          <div class="posts_empty">
-            <p>No Posts here yet.</p>
-            <p>Be the first to <a href="/posts/new">write</a> a message.</p>  
+      <section class="posts-container">
+        <% if(!locals.currentUser && posts.length > 0) { %>
+          <div class="login_first">
+            <a href="/">Please login first</a>
           </div>
+          <ul class="posts_list">
+            <% posts.forEach(function(post) { %>
+              <li class="post">
+                <ul class="user_info">
+                  <li class="user name">Anonymous</li>
+                  <li class="user username">@*****</li>  
+                </ul>
+                <p class="message"><%= post.message %></p>
+                <p class="timestamp">Some Time Ago...%></p>
+              </li>
+            <% }); %>
+          </ul>
+        <%} else if (locals.currentUser && posts.length > 0) {%>
+          <%- include("partials/postList.ejs")%>    
+        <%} else {%>
+            <div class="posts_empty">
+              <p>No Posts here yet.</p>
+              <p>Be the first to <a href="/posts/new">write</a> a message.</p>  
+            </div>
         <%}%> 
-      <%}%>
+      </section>
     </main>
   </body>
 </html>
