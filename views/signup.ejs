@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css" />
     <title>Sign-Up</title>
   </head>
   <body>
     <%- include("partials/header.ejs") %>
     <main>
-      <div class="form_container">
-        <h1>Sign-Up</h1>
+      <div class="form-container">
       <%- include("partials/errors.ejs") %>
       <form action="/users/sign-up" method="post">
+        <legend>Sign-up</legend>
         <label for="firstname">First Name: </label>
         <input
           id="firstname"
@@ -37,18 +39,32 @@
           placeholder="username"
           type="text"
           required
+          minlength="8"
+          maxlength="15"
         />
         <label for="password">Password: </label>
-        <input id="password" name="password" type="password" required />
+        <input 
+          id="password" 
+          name="password" 
+          type="password" 
+          required 
+          placeholder="8-15 characters"           
+          minlength="8"
+          maxlength="15"
+        />
         <label for="passwordConfirmation">Confirm Password: </label>
         <input
           id="passwordConfirmation"
           name="passwordConfirmation"
           type="password"
           required
+          placeholder="Confirm password"
+          minlength="8"
+          maxlength="15"
         />
         <button type="submit">Sign Up</button>
       </form>
+      <p>Have an account? <span class="bold"><a href="/">Log in</a></span></p>
       </div>
     </main>
   </body>
