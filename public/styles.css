@@ -1,6 +1,7 @@
 :root {
   /* colors */
   --clr-red: hsl(2, 70%, 48%);
+  --clr-yellow: hsl(47, 81%, 56%);
   --clr-green: hsl(138, 76%, 31%);
   --clr-black: hsl(0, 0%, 0%);
   --clr-white: hsl(0, 0%, 96%);
@@ -96,6 +97,8 @@ button {
   background: var(--button-bg);
   color: var(--button-text);
   border: 0;
+  border-radius: 3px;
+  padding: 1ex 2ex;
 }
 
 button:hover,
@@ -209,34 +212,59 @@ h1 {
   background-color: var(--clr-red);
 }
 
-/* MAIN CONTENT */
-main {
-  margin: 2rem 0;
-}
-main > * {
-  margin: 0 auto;
-}
-
-.login_first {
-  background-color: var(--clr-teal);
-  color: var(--clr-white);
-
-  font-size: 1.25rem;
-  text-align: center;
-
-  max-width: 70%;
+/* FORM */
+.form-container {
+  border: 1px solid var(--clr-black);
+  border-radius: 1em;
+  max-width: 35ch;
   padding: 1em;
-  margin: 1em auto;
-  border-radius: 3px;
-
-  a {
-    color: var(--clr-white);
-    text-decoration: underline;
-    font-weight: 600;
-  }
+  margin: 2rem auto;
 }
 
-.success_container {
-  max-width: fit-content;
-  margin: 5rem auto;
+form {
+  --clr-success: var(--clr-green);
+  --clr-warning: var(--clr-yellow);
+  --clr-error: var(--clr-red);
+
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-container:focus-within {
+  box-shadow: 0 0 1rem var(--clr-teal);
+}
+
+.form-group {
+  display: grid;
+  gap: 0.5cap;
+}
+
+legend {
+  font-size: var(--fs-400);
+  font-family: var(--ff-accent);
+  text-align: center;
+}
+label {
+  text-transform: uppercase;
+  font-size: var(--fs-300);
+}
+
+input {
+  outline: 3px solid var(--clr-teal);
+  border-radius: 4px;
+  border: none;
+  padding: 1ex 2ex;
+}
+
+input:not(:placeholder-shown):valid {
+  outline-color: var(--clr-success);
+}
+
+input:not(:placeholder-shown):invalid {
+  outline-color: var(--clr-error);
+}
+
+input:focus:invalid {
+  outline-color: var(--clr-warning);
 }
