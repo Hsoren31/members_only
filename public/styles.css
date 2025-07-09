@@ -285,21 +285,6 @@ input:focus:invalid {
   gap: 1rem;
 }
 
-.login_first {
-  background-color: var(--clr-teal);
-  text-align: center;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 3px;
-
-  a {
-    color: var(--clr-white);
-    font-size: var(--fs-400);
-    font-weight: var(--fw-bold);
-    letter-spacing: 1px;
-  }
-}
-
 .post {
   position: relative;
   border: 1px solid var(--clr-teal);
@@ -347,4 +332,23 @@ form.delete_post {
 .delete_btn:focus {
   background: none;
   color: var(--clr-delete-hover);
+}
+
+/* LOGIN FIRST MESSAGE */
+.login_first {
+  background-color: var(--clr-teal);
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 3px;
+  max-width: calc(100% - 4rem);
+  color: var(--clr-white);
+
+  a {
+    color: var(--clr-white);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+    letter-spacing: 1px;
+    text-decoration: underline;
+  }
 }

@@ -16,9 +16,7 @@
     <main>
       <section class="posts-container">
         <% if(!locals.currentUser && posts.length > 0) { %>
-          <div class="login_first">
-            <a href="/">Please login first</a>
-          </div>
+          <%- include("partials/loginFirst.ejs") %>
           <ul class="posts_list">
             <% posts.forEach(function(post) { %>
               <li class="post">
