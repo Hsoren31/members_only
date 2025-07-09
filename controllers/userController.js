@@ -79,16 +79,16 @@ exports.signUpPost = [
   },
 ];
 
-exports.joinUserGet = async (req, res) => {
-  res.render("joinTheClub");
+exports.memberGet = async (req, res) => {
+  res.render("member");
 };
 
-exports.joinUserPost = [
+exports.memberPost = [
   validateMember,
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).render("joinTheClub", {
+      return res.status(400).render("member", {
         errors: errors.array(),
       });
     }

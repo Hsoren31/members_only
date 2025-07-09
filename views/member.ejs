@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css" />
-    <title>Join the Club!</title>
+    <title>Membership</title>
   </head>
   <body> 
     <%- include("partials/header.ejs") %>
@@ -13,10 +15,14 @@
       <% if(!locals.currentUser) {%>
         <%- include("partials/loginFirst.ejs")%>
       <%} else {%>
-      <h1>Join the Club!</h1>
-      <div class="form_container">
-        <%- include("partials/errors.ejs") %>
+        <div>
+          <h2>Become a member</h2>
+          <p>Being a member allows you to view posts user and time stamps.</p>
+        </div>
+        <div class="form-container">
         <form action="/users/members/join" method="post">
+          <legend>Become a member</legend>
+          <%- include("partials/errors.ejs") %>
           <label for="secretCode">Who cleans pirates' ears?  </label>
           <input type="password" name="secretCode" id="secretCode" />
           <button type="submit">Submit</button>
