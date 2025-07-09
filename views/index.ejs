@@ -3,29 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css" />
     <title>Members Only</title>
   </head>
   <body>
     <%- include("partials/header.ejs") %>
     <main>
-      <h1>Welcome!</h1>
-      <div class="form_container">
-        <h2>Login</h2>
-        <form class="form_login" action="/log-in" method="post">
-          <p>
-            <label for="username">Username: </label>
-            <input id="username" name="username" placeholder="username" type="text" />  
-          </p>
-          <p>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" />  
-          </p>
-          <button type="submit">Log In</button>
-        </form>
-        <p>Don't have an account? <a class="sign_up" href="/users/sign-up">Sign-Up</a></p>
-      </div>
+      <section class="home-welcome">
+        <div>
+          <h2>Welcome!</h2>
+          <p>Members only is an online platform for people to share their thoughts. All posts are anonymous until you become a member.</p>
+        </div>
+        <div class="login form-container">
+            <form class="form_login" action="/log-in" method="post">
+              <legend>Login</legend>
+              <div class="form-group">
+                <label for="username">Username: </label>
+                <input id="username" name="username" placeholder="username" type="text" minlength="8" maxlength="15"/>  
+              </div>
+              <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" placeholder="password" minlength="8" maxlength="15"/>  
+              </div>
+              <button type="submit">Log In</button>
+            </form>
+            <p>Don't have an account? <a class="sign_up" href="/users/sign-up">Sign-Up</a></p>
+        </div>
+      </section>
     </main>
   </body>
 </html>
