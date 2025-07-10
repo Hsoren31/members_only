@@ -15,19 +15,21 @@
       <% if(!locals.currentUser) {%>
         <%- include("partials/loginFirst.ejs")%>
       <%} else {%>
-        <div>
-          <h2>Become a member</h2>
-          <p>Being a member allows you to view posts user and time stamps.</p>
-        </div>
-        <div class="form-container">
-        <form action="/users/members/join" method="post">
-          <legend>Become a member</legend>
-          <%- include("partials/errors.ejs") %>
-          <label for="secretCode">Who cleans pirates' ears?  </label>
-          <input type="password" name="secretCode" id="secretCode" />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+        <section class="banner">
+          <div class="form_desc">
+            <h2>Become a member</h2>
+            <p>Being a member allows you to view posts user and time stamps.</p>
+          </div>
+          <div class="form-container">
+            <form action="/users/members/join" method="post">
+              <legend>Become a member</legend>
+              <%- include("partials/errors.ejs") %>
+              <label for="secretCode">Who cleans pirates' ears?  </label>
+              <input type="password" name="secretCode" id="secretCode" />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </section>
       <%}%>
     </main>
   </body>

@@ -352,3 +352,27 @@ form.delete_post {
     text-decoration: underline;
   }
 }
+
+.banner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: calc(100% - 2rem);
+  margin: 2rem auto;
+}
+
+.form_desc {
+  padding: 1rem;
+  text-align: center;
+  align-content: center;
+  font-size: var(--fs-400);
+
+  h2 {
+    font-size: var(--fs-600);
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .banner {
+    grid-template-columns: 1fr;
+  }
+}
