@@ -16,12 +16,17 @@
       <% if(!locals.currentUser) {%>
         <%- include("partials/loginFirst.ejs")%>
       <%} else {%>
-        <h1>Write a New Message</h1>
-        <div class="form_container">
-          <%- include("partials/errors.ejs") %>
+        <div class="form-container message">
           <form action="/posts/new" method="post">
+            <legend>Write a New Message</legend>
             <label for="message">Message: </label>
-            <textarea name="message" id="message"></textarea>
+            <textarea 
+            name="message" 
+            id="message"
+            minlength="1"
+            maxlength="255"
+            placeholder="Must be less than 255 characters"></textarea>
+            <%- include("partials/errors.ejs") %>
             <button type="submit">Post</button>
           </form>
         </div>

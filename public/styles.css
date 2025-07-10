@@ -249,6 +249,11 @@ form {
   box-shadow: 0 0 1rem var(--clr-teal);
 }
 
+.errors_list {
+  list-style: none;
+  color: var(--clr-red);
+}
+
 .form-group {
   display: grid;
   gap: 0.5cap;
@@ -281,6 +286,17 @@ input:not(:placeholder-shown):invalid {
 
 input:focus:invalid {
   outline-color: var(--clr-warning);
+}
+
+.form-container.message {
+  max-width: calc(100% - 2rem);
+  min-width: 35ch;
+}
+
+textarea {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 200px;
 }
 
 /* POSTS */
