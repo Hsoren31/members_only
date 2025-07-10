@@ -132,6 +132,7 @@ header {
 
 h1 {
   font-size: var(--fs-700);
+  text-transform: uppercase;
 }
 
 .primary-nav {
