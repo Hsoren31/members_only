@@ -166,16 +166,23 @@ h1 {
 /* DROPDOWN MENU */
 .user-button {
   padding: 0;
-  width: 2.5rem;
-  height: 2.5rem;
   border-radius: 100vw;
   aspect-ratio: 1;
   border: none;
   anchor-name: --user-button;
+  --button-bg: transparent;
+  --button-text: var(--clr-teal);
 }
 
-.user-icon {
+.user-button:hover,
+.user-button:focus {
+  --button-text-hover: var(--clr-teal-hover);
+  --button-bg-hover: transparent;
+}
+
+.fa-circle-user {
   vertical-align: middle;
+  font-size: var(--fs-700);
 }
 
 .profile-menu {
@@ -187,7 +194,7 @@ h1 {
 
   margin-block-start: 6px;
   padding: 0;
-  border: 1px solid var(--clr-green);
+  border: 1px solid var(--clr-teal);
   border-radius: 3px;
   box-shadow: 1px 0 12px 1px rgba(0, 0, 0, 0.4);
 
@@ -203,8 +210,14 @@ h1 {
   padding: 0.75rem 1rem;
 }
 
+.account-info > strong {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-400);
+  text-transform: capitalize;
+}
+
 .profile-menu > a:hover {
-  background-color: var(--clr-green);
+  background-color: var(--clr-teal);
   color: var(--clr-white);
 }
 
