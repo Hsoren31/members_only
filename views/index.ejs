@@ -29,6 +29,7 @@
                 <label for="password">Password: </label>
                 <input type="password" name="password" id="password" placeholder="password" minlength="8" maxlength="15"/>  
               </div>
+              <%- include("partials/errors.ejs") %>
               <button type="submit">Log In</button>
             </form>
             <p>Don't have an account? <a class="sign_up" href="/users/sign-up">Sign-Up</a></p>

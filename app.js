@@ -87,8 +87,10 @@ app.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/",
+    failureMessage: true,
   })
 );
+
 app.get("/log-out", (req, res, next) => {
   req.logout((err) => {
     if (err) {
@@ -105,7 +107,9 @@ app.get("/", async (req, res) => {
   if (res.locals.currentUser) {
     res.render("posts", { posts });
   } else {
+    res.locals.errors = req.session.messages;
     res.render("index");
+    req.session.messages = undefined;
   }
 });
 
