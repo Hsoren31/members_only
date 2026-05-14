@@ -406,3 +406,9 @@ form.delete_post {
     grid-template-columns: 1fr;
   }
 }
+
+.success_container {
+  max-width: max-content;
+  margin: 5em auto;
+  text-align: center;
+}
